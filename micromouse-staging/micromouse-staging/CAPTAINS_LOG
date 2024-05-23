@@ -1,0 +1,386 @@
+CAPTAINS_LOG
+
+23/08/19
+Epoch for software arch.
+
+24/08/19
+Received ir sensors.
+Completed IMU calibration interface.
+
+28/08/19
+All tasks listings.
+
+29/08/19
+8:52 AM
+Controller Epoch
+8:56 PM
+Encoder testing successful.
+someone burned out 1 prototype motor.
+
+30/08/19
+6.32 PM
+IR sensors testing init.
+8.02 PM
+IRs are fucked up. Shows 5v op accross LEDs no rev bias current.
+
+3/09/19
+Revised design issues, Green ye youtube guy was a huge help.
+
+4/09/19
+Aimed to complete IMU yaw values and sensor fusion and
+look into Software OS (pref sEOS or systic timers).
+9.34pm
+Dont know how my code is running the first time ?
+Code and design completed for kalman6d used matlabC coder.
+(now you know how :) )
+
+5/09/19
+Corrected/modified kalman code Successfully imported and run kalman code in main.ino
+Looked into curved turnings.
+Research on timers.
+Thinking of moving to standard embedded IDEs instead of Arduino IDE for timer simplicity and using sEOS or systic time settings.
+
+6/09/19
+12.20pm
+Going forward with arduino IDE, not using embedded codes.
+New changes in kalman code reverifying needed.
+
+10/09/19
+10 days to competetion
+Completed IR firing pattern code.
+Purchased batteries 850mAhx2 ~40C, motor driver ICs l293d x2, Bought new IR pairs(x10) for IR sensor module.
+
+11/09/19
+9 days to go
+Resolved IR header object issues.
+Resolved IR hardware issue, entire batch of IR leds were soldered reverse.
+Programmed basic IO for kalman and other vars via global vars.
+
+12/09/19
+8 days to go.
+Looked into Floodfill algorithm / advanced algos for better solving .See references.
+Looked 3d printing skid pads.
+voltage checker algo.
+Debug test codes.
+
+17/09/19
+Looked into Floodfill algorithm got codes for them.
+
+18/09/19
+File inclusion for mazes and speed profiler codes.
+
+19/09/19
+HWARE DEBUGGING.
+
+17/12/19 
+BEEN A LONG TIME 
+COMPETETION ON JAN3 '20 
+ABOUT 16 days remaining
+1.21PM 
+FINISHED TESTING NIGEL WEBB ENCODER CODE TEST 
+INTEGRATION REMAINING |
+ TODAYS AIM 
+INTEGRATE CODES FOR MOTORS AND TEST AND GET DONE WITH MOTOR ISSUES
+10.04 PM 
+DONE INTEGRATING AND FIXING MOTORS AND CODES 
+ISSUES/NOTES 
+TIM 1 is 16 bit timer hence values only until 62235
+
+Whats remaining ??
+TRACK TESTING AND CALIBRATION
+S1 - GET A TRACK 
+S2 - CALIBRATE REMAINING sensors ----------------------------------------------------
+
+18/12/19
+Done with the TRACK
+
+19/12/19
+11.05AM 
+Calibration for encoders started.
+Timer for clock is needed.
+About 1106 steps for 18cm ie 
+TO DO 
+TEST IMU modified code 
+(shites ) using yawGyro
+
+CAlC current speed and w
+done ish.
+
+Do path planner and speed profiler.
+Aim 
+resolve controller parameters
+Well before that I need to the state estimation problem
+CAn i do it without something complex YES.
+
+
+Get w from encoders. THAT FORMULA IS FOR CURVE TURN W 
+
+
+20/12/19 
+9.45 PM 
+THE 2nd 7805 burned up, in one day. SHITES AGAIN.
+Considering to add a 2nd 7805 POWER SUPPLY TO BALANCE IT.
+ 
+
+ 22/12/19
+ 12.51 AM 
+ BOUGHT THE BUCK CONVERTER(x3 just in case. ...) YESTERDAY( technically )
+ Soldered it, runs good.
+ Found the issue causing the PWM pin trouble, had declared motor objects in actuactor.cpp
+ PART 2 
+ GET EACH FUNCTIONS RUNTIME AND PROGRAM SYSTICK TIMER ? 
+ Why systick ? Dont know , confused if dt chages vfrequnetly .....
+ Either way need to test runtime of each function
+How do I test runtimes in PIO CODE ?
+
+One way declare t.start at beginning of each function being tested ...
+2 way LOOK ONline.
+GOING WITH 1st option coz of procastination ...
+looked 2nd option .. not much use
+
+Starting with major functions ...
+main_controller - shows 57us 
+WHOA ... 
+MAYBE I CAN FIX ALL OF IT WITHIN 1MS 
+MAYBE ..
+
+
+TRYing to line all functions TO GET TOTAL TIME EXECUTION.
+
+
+23/12/19
+
+s1 run all functions and get total runtime.
+s2 merge 
+s3 ..
+
+Starting with finishing all the functions
+1 encoder
+
+
+24/12/19 
+back to IRs they had low power soldered 6pnp transistors for higher power 
+Testing today for performance
+day wasted ...
+YESTERDAY and today literally, way too ugly to debug things
+
+
+25/12/19 
+12.14 AM
+Switching back to supplying IRs from the microcontroller only let better have 25mA power than no power ...
+8 days to go.
+
+WOULD I BE ABLE TO COMPLETE THIS ?
+LETS BE HOPEFUL ...
+
+9.09 AM 
+Merry Xmas , not so merry 
+debugging one pnp 
+
+Moved on with IMU takes  -373.6619743981135 
+Does take 50MS 
+URGENT NEED FOR TTH architecture. 
+SED.
+Nop 
+its sort spooky , like spooky effect of electrons.
+When measuring the val via debuggers the val changes continiously and randomly but when printing it normally the val is constant.
+IDK IT TOOK 1MS to process the calc inside it, assuming just go with it.
+
+6.25 PM 
+Calibrated IMU ....Finally still don't know the runtime of the function. Coz of the spooky effct or maybe an interrupt is there maybe ... 
+Dont know ...
+
+Need to limit to -180 to 180 // To be integrated with path planning Major issue.
+
+7.20 PM 
+done with good IMU calib and encoder calib for one revolution.
+PS 870 counts = 1 revolution/rotation. of motor.
+
+
+******IMPortant************
+Other Facts and calib stats 
+1 deg bot yaw =  diff of 14.29 counts.
+1 cm of wheel dist = 50.74 enc counts.
+
+
+For reference 
+****WHEEL 1DEGREEE*** 2.41counts
+****WHEEL 360DEGREEE*** 870counts or one revolution.
+
+26/12/19 
+11.32AM 
+IRs super forked up now, since transistors were not working I **cut them OFF**
+Now IR led module separated from the board.
+All IRS ARE WORKING at 3.3v except SR IR Led.
+that led works at 5v, need to change resistor vals.
+
+With having no patience I am moving forward with main_controller calibration and testing.
+
+
+FUNNY THINGY I HADN'T called THAT FUNCTION>.>>>. 
+USELESSLY CUT THE transistor wires.
+
+27/12/19
+4.46AM
+tried everything ... 
+Cleaned the old iron resoldered the entire transistor and cutted wires. cleaned the board a bit, BUT STILL NO LUCK 
+Finally switched back to normal,  thingsarent working quite as expected.
+except sl all good
+
+1.27PM 
+there Fixed it ...
+
+7.39PM
+track ready.
+Now need to test.
+
+8.48PM
+FIXING BACK TO the ol' edfault code it works fine adding some tunings **WITHOUT** modifying anything old.
+
+Writing STARTUP SELF CALIB SEQUENCE for IMU COZ offset changes everytime for every run according to refresh rate.
+2 things need to be done.
+Self calibration and main controller.
+
+Sunday 29/12/19
+2.10 PM 
+Deciding a step by step procedure for debugging.
+S1. Before beginning anything see CAPTAINS_LOG what was done previously.
+S2. analyse it, see if is complete or left partially.
+s2.2 If partial, complete it, comment it, commit it and push it.
+s3. Take a break every 30 mins wash eyes and stuff, every 15 mins walk.
+
+S4. Begin that days task, by writing what you will be doing that day.
+S4.2 Write as you complete wach sub task here.
+S5 complete, comment, commit and PUSH.
+S6 REPEAT 
+
+ TIP - COMPLETE,debug,commit,PUSH, small blocks of code say every 50 lines or so.
+ 
+
+So far completed yesterdays work. 
+Need to address the ramping of motors speed for smooth transistion.
+Software 
+Task1. RAMP UP/DOWM MOTORS.
+Task2. Fuse and check yaw correct or not.
+Task3. Main controller PID vals.
+
+hware 
+Task1. FIX SKID PAD POSITION.
+
+s1 doing the Hware task first.
+2.52 PM 
+Fixed
+
+3.36 PM 
+S1. Ramp up 
+still thinking ...
+
+8.09PM 
+Done with Task1 and Task2
+
+
+Starting Task3 BIG TASKK.
+
+9.10
+S1. Get max x speed and max w speed.
+GEt done by 9.30
+
+10.46PM
+MAX W dont know MAX Vel atleast about 100cm/sec  
+11.23 PM 
+MAX W 200degs/sec
+
+11.48 PM
+Things gone tough !!
+IMU reading not stable enough to get a good w value.
+
+30/12/19
+1.31 PM 
+TRying out the systick option.
+
+3.57PM 
+done with systick 
+Goodbye all printf statements.
+Need runtimes of each and every small and big function without and with the printf statements. ...:(
+
+Starting with the headaching IMU function.
+Hopefully doesnt trouble me now ?? Who knows ?
+
+6.41 
+was strcuk in the rolling chair Didnt had aclue as to what was doing !!
+Now reverified and modified the IMU calib code, according to new needs ( hopefully )
+
+NOW I HAVE CURRENT W and current vel now moving to the main controller.
+After the break ..
+
+7.01 PM 
+init PID 
+
+31/12/19
+1.28AM
+Got the lipo charger  
+Finished with startup sequence added a few things 
+Today with PID in the morning...
+
+11.31AM 
+continuing with PID,
+Todays AIMs.
+1. Get Finally done with PID.
+2. Start testing Floodfill.
+
+s1. 
+Put the startup task bool quote in ISR.
+
+Getting sidelined  in self calib.cpp
+
+1.52 PM
+a break.. 
+30 mins 
+
+4.57PM 
+Still not able to get PId vals for x and w ..
+
+Trying newer approach
+Slower but w/o mods 
+s1. try to elim yaw completely from pictute 
+
+7.34 PM 
+Dont know what to do ?
+Did calibrate PID for linear vals.
+Now trying tune PID for yaw vals.
+
+1/01/20
+12.09AM
+Happy new year buddy.
+Nice fireworks.
+
+ditching the PID things moving to flood fill, using simple while loop for turning and simple l_forward , r_forward for st path.
+Assuming I have all the hware stuff working good and sexy.
+Lets begin :)
+.
+.
+.
+
+1/01/20
+10.45AM 
+changed and modified the floodfill code.
+
+11.07AM
+calibrating IR module.
+
+9.57PM 
+Thirty six HOURS BEFORE competetion.
+Gave up, Well could have gone, but would be a pointless drag.
+This list wont to an end until the victory of some micromouse competetion.
+NEW COMMITS COMING SOON ... . 
+Till then signing off ? AM I :)
+
+2/01/20
+11.41AM 
+Trying to debug for 2 hrs, if works works else sayonara. 
+
+12.23PM 
+There are way too many issues with the I2c thing to work correctly.
+IRS also way forked up again. SADLY .... .
+
+Sayonaara.

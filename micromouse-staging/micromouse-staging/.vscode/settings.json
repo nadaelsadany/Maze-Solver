@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.env.linux": {
+        "PATH": "/home/zero/.platformio/penv/bin:/home/zero/.platformio/penv:/home/zero/.local/bin:/opt/st/stm32cubeide_1.0.2/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_1.0.0.201904021149/tools/bin:/home/zero/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+        "PLATFORMIO_CALLER": "vscode"
+    },
+    "files.associations": {
+        "stdbool.h": "c",
+        "maze.c": "cpp",
+        "stack.c": "cpp"
+    }
+}

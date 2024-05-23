@@ -1,0 +1,62 @@
+
+#include <iostream>
+void creating_array()
+{
+    int m = 16 ;//dimintion of maze
+    int n = 16 ;
+
+    int x = 8; //end point 
+    int y = 8;
+    
+    x--; // to count from 1 not zero   
+    y--;
+    int Narray[16][16];
+    Narray[x][y] = 0;
+
+    int  counter1 = 1;
+    int  counter2 = 1;
+    // creating the first row in the matrix 
+    for (int i = x+1; i < m; i++)
+    {
+         Narray[i][y] = counter1++;
+
+    }
+    for (int i = x - 1; i >= 0; i--)
+    {
+        Narray[i][y] = counter2++;
+    }
+     
+    // complete the matrix  
+    for (int i = 0; i < m; i++)
+    {
+        int counter3 = Narray[i][y ];
+        for (int j = y+1; j < n; j++)
+        {
+            Narray[i][j] = ++counter3;
+        }
+        int counter4 = Narray[i][y ];
+        for (int j = y - 1; j >= 0; j--)
+        {
+            Narray[i][j] = ++counter4;
+        }
+    }
+
+    
+    //  print the matrix
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%d  ", Narray[i][j]);
+        }
+        printf("\n");
+    }
+  
+
+}
+
+int main()
+{
+    creating_array();
+}
+

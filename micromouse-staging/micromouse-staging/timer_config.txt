@@ -1,0 +1,14 @@
+Try searching clocks in datasheet
+
+The timer peripherals can be classified as:
+• Advanced-configuration timers like TIM1 and TIM8 among others.
+
+• General-purpose configuration timers like TIM2 and TIM3 among others
+
+• Lite-configuration timers like TIM9, TIM10, TIM12 and TIM16 among others
+
+ • Basic-configuration timers like TIM6 and TIM7 among others.
+ 
+ The application note STM32 cross-series timer overview (AN4013) presents a detailed
+ overview on the STM32 timer peripherals across the different STM32 microcontroller
+ families.
